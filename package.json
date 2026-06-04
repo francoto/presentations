@@ -1,0 +1,22 @@
+{
+  "name": "presentations",
+  "private": true,
+  "scripts": {
+    "build:index": "slidev build --base /presentations/ --out dist",
+    "build:jdev26": "cd jdev26_codemetasoft && slidev build --base /presentations/jdev26_codemetasoft/ --out ../dist/jdev26",
+    "build": "npm run build:index && npm run build:jdev26",
+    "dev": "slidev",
+    "dev:jdev26": "cd jdev26_codemetasoft && slidev"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.11.3",
+    "@slidev/theme-seriph": "^0.25.0",
+    "playwright-chromium": "latest"
+  },
+  "dependencies": {
+    "@slidev/theme-default": "^0.25.0"
+  },
+  "overrides": {
+    "@antfu/utils": "^0.7.10"
+  }
+}
