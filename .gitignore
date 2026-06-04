@@ -1,0 +1,22 @@
+# pnpm
+node_modules
+dist
+.pnpm-store/
+*.pnpm
+
+# IDEs
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# html
+*.html
