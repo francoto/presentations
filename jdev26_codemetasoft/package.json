@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --base /presentations/jdev26_codemetasoft/",
+    "build": "slidev build --base /presentations/jdev26/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
