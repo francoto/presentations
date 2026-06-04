@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: 
+background:
 title: Métadonnées et FAIRness
 info: |
   ## Comment ajouter des métadonnées pour vos logiciels de recherche
@@ -24,11 +24,10 @@ download: true
 Plan
 
 1. FAIRness and metadata
-2. TP : generate a codemeta.json
+2. *tutorial : generate a codemeta.json*
 3. Maintaining metadata up to date
-4. TP : install a CI to check metadata
+4. *tutorial : install a CI to check metadata*
 5. Publication
-
 
 ---
 layout: center
@@ -324,14 +323,6 @@ zoom: 0.85
 
 <div>
 
-### pyproject.toml
-- Package manager metadata
-- Language-specific
-
-</div>
-
-<div>
-
 ### CodeMeta
 - JSON-LD format
 - Based on Schema.org
@@ -448,59 +439,415 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
 -->
 
 ---
+layout: center
+class: text-center
+---
 
-# TP : Generate a codemeta.json
-
-- **public** url repo (Github or Gitlab)
-- Use https://autocodemeta.linkeddata.es/
-
-
-Sample repository:
-- https://github.com/SoftwareUnderstanding/sw-metadata-bot
+# Tutorial
 
 ---
 
-## TP 1 conclusion
+## Tutorial 1 : Generate a codemeta.json
 
-- check suggested `codemeta.json
+
+<div class="grid grid-cols-12 gap-6">
+
+<div class="col-span-8">
+
+### Instructions
+
+- Go on https://autocodemeta.linkeddata.es/
+- provide your **public** url repo (Github or Gitlab)
+
+<div v-click class="mt-1 p-2 bg-blue-50 dark:bg-blue-900 rounded text-sm">
+
+💡 Sample repository:
+- https://github.com/SoftwareUnderstanding/sw-metadata-bot
+
+</div>
+
+<v-click>
+
+- check suggested `codemeta.json`
 - add manual inputs
   - publication if any
   - funding
   - contributors list
-- commit your `codemeta.json` file
+
+</v-click>
+
+</div>
+
+
+
+<div v-click class="col-span-4">
+
+### Summary
+
+
+- commit your `codemeta.json`
+
+</div>
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# Metadata Maintenance
+
 
 ---
 
+## Metadata maintenance
 
-# Metadata maintenance
+<div v-click>
 
-- update informations:
+During the software developpment 
+
+</div>
+
+<div v-click>
+
+- update metadata information:
   - modificationDate
+  - version number
   - contributors
   - dependancies requirements
   - changelog
   - ...
+</div>
 
-A bit cumbersome to do this manually
+<div v-click>
+
+**Difficulties**
+
+- a bit cumbersome to do this manually
+- prone to error
+</div>
 
 ---
 
-# RSMetacheck analysis
+## Solution : RSMetacheck analysis
 
+https://github.com/SoftwareUnderstanding/RsMetaCheck
+
+based on [SoMeF](https://github.com/KnowledgeCaptureAndDiscovery/somef) 
+- indentifies pitfalls and warnings
+- provides suggestions to fix them
+
+## How to use it :
+- install python package locally
+- use Github Action or in gitlab-ci
+
+Good to maintain your own repositories
 
 ---
 
-# tuto: add RSMetaCheck to your repo or subscribe to the bot
+## sw-metadata-bot
+
+for group maintainers 👥
+
+<div v-click>
+
+🖼️ Snapshot of one sample issue [TBD]
+
+</div>
+
+<div v-click>
+
+🖼️ Snapshot of the dashboard [TBD]
+
+</div>
+
+<div v-click class="mt-1 p-4 bg-yellow-50 dark:bg-yellow-900 rounded">
+⚠️ still in beta stage: some false positive, some suggestions not accurate
+</div>
+
+<div v-click class="mt-1 p-4 bg-orange-50 dark:bg-yellow-900 rounded">
+
+feedback are welcome (submit issues here) [TBD]
+
+</div>
+
+<div v-click class="mt-4 p-1 bg-green-50 dark:bg-yellow-900 rounded">
+
+future : create a GitHub action to generate PR with automatic fixes.
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# Tutorial
 
 
+---
+zoom:0.5
+---
+
+## Tutorial 2 
+- add RSMetaCheck to your repo 
+- (or) subscribe to the bot
+
+---
+
+### Add RSMetacheck in your CI
+for github:
+
+```yaml
+name: RsMetaCheck Validation
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  analyze-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Run RsMetaCheck
+        uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
+        # optional arguments
+        with:
+          input: https://github.com/$GITHUB_REPOSITORY # if input is omited it will use GITHUB_REPOSITORY url
+          pitfalls_output: "./pitfalls_outputs" 
+          verbose: "false"
+```
+
+https://github.com/marketplace/actions/rsmetacheck
+
+---
+
+### Add RSMetacheck in your CI
+for gitlab:
+
+in `.gitlab_ci.yml`
+
+```yaml
+rsmetacheck:
+  image: python:3.11
+  stage: test
+  script:
+    - pip install rsmetacheck
+    - somef configure -a
+    - rsmetacheck --input $CI_PROJECT_URL
+  artifacts:
+    paths:
+      - pitfalls_outputs/
+      - somef_outputs/
+      - analysis_results.json
+    when: always
+    expire_in: 1 week
+```
+
+---
+
+### Subscribe to the bot
+
+[TBD]
+
+
+---
+layout: center
+class: text-center
 ---
 
 # Publication
 
-- release 
-- Gitlab/Github are not persistent / not archiving
+---
+level: 2
+---
 
-Zenodo and Software Heritage
+# Software Publication ≠ Code Hosting
+
+<div class="grid grid-cols-2 gap-8">
+
+<div>
+
+## Code Hosting (GitHub/GitLab)
+
+<v-click>
+
+- ✅ Version control
+- ✅ Collaboration
+- ✅ Issue tracking
+- ✅ Code review
+
+</v-click>
+
+<div v-click class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900 rounded text-sm">
+⚠️ This is a great start, but not enough!
+</div>
+
+</div>
+<div>
+<v-click>
+
+## Full Publication Includes
+
+- 📄 **Documentation** - README, guides
+- ⚖️ **License** - Legal reuse terms
+- 📋 **Metadata** - Findability
+- 🏷️ **Citation** - Academic credit
+- <v-mark color="yellow">📦 Packaging - Easy installation</v-mark>
+- <v-mark color="yellow">🔖 Releases - Version management</v-mark>
+- <v-mark color="yellow">🏛️ Archiving - Long-term preservation</v-mark>
+
+</v-click>
+
+</div>
+
+</div>
+
+<div v-click class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
+💡 Publishing is the finale touch to make your software FAIR
+</div>
+
+<div class="abs-br m-6 text-sm opacity-50">
+Source: RSQKit - Publishing Software
+</div>
+
+<!--
+Putting code on GitHub is step one. Full publication requires several additional components.
+-->
+
+---
+level: 2
+---
+
+# Why Archive Software?
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+## The Problem
+
+<v-clicks>
+
+**GitHub/GitLab are NOT archives:**
+- Commercial platforms
+- Can change policies
+- Repositories can be deleted
+- URLs can break
+- No guarantee of permanence
+
+</v-clicks>
+
+<div v-click class="mt-4 p-4 bg-red-50 dark:bg-red-900 rounded text-sm">
+⚠️ What happens to your research software in 10 years?
+</div>
+
+</div>
+
+<div>
+<v-click>
+
+## A Solution: Archiving
+</v-click>
+<v-clicks>
+
+**True archives provide:**
+- 🏛️ **Long-term preservation** (decades)
+- 🔒 **Persistent identifiers** (DOIs)
+- 📋 **Metadata preservation**
+- 🔍 **Discoverability** in academic systems
+- ✅ **Trustworthy** repositories
+- 🌐 **Integration** with citation systems
+
+</v-clicks>
+
+</div>
+
+</div>
+
+<div class="abs-br m-6 text-sm opacity-50">
+Source: RSQKit - Archiving Software
+</div>
+
+<!--
+Archiving ensures your software remains accessible for the long term, essential for reproducibility.
+-->
+
+
+---
+level: 2
+---
+
+# Software Archives
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+<div>
+
+## Zenodo
+
+<v-clicks>
+
+- **General-purpose** archive
+- CERN-hosted (Europe)
+- **Free** and open
+- **DOI** for each version
+- **GitHub integration**
+- Supports all file types
+- Part of OpenAIRE
+
+### Good For:
+- Software
+- Datasets
+- Supplementary materials
+
+</v-clicks>
+
+</div>
+
+<div>
+
+## Software Heritage
+
+<v-clicks>
+
+- **Universal** software archive
+- UNESCO-supported
+- Preserves all public source code
+- **Software Heritage identifier** (SWHID)
+- Automatic archiving
+- link from HAL
+- Complete Git history preserved -> better granularity of identifiers
+
+### Good For:
+- Software
+- Being able to cite a specific part or commit of a software
+
+</v-clicks>
+
+</div>
+
+</div>
+
+<div v-click class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
+💡 Recommendation: Use at least one 
+</div>
+
+<!--
+Zenodo and Software Heritage serve complementary purposes. Both are free and trustworthy.
+-->
+
+---
+
+# Demo Zenodo
+
+Show on sw-metadata
+
+# Demo Software Heritage
 
 ---
 zoom: 0.8
@@ -526,15 +873,14 @@ layout: end
 
 </div>
 
-## Tools
+## Codemetasoft Tools
 
 <div style="text-align: left;">
 
-- [Choose a License](https://choosealicense.com/)
-- [CodeMeta Generator](https://codemeta.github.io/codemeta-generator/)
-- [CFF Initializer](https://citation-file-format.github.io/cff-initializer-javascript/)
-- [howfairis](https://github.com/fair-software/howfairis)
-- [Zenodo](https://zenodo.org/)
+- [Codemetasoft project page](https://w3id.org/codemetasoft)
+- [Autocodemeta](https://autocodemeta.linkeddata.es/)
+- [RSMetacheck](https://github.com/SoftwareUnderstanding/RsMetaCheck)
+- [sw-metadata-bot](https://github.com/SoftwareUnderstanding/sw-metadata-bot)
 
 </div>
 
@@ -554,14 +900,15 @@ layout: end
 
 </div>
 
-## Community
+## Other Tools
 
 <div style="text-align: left;">
 
-- [Research Software Engineers (RSE)](https://society-rse.org/)
-- [EVERSE Project](https://everse.software/)
-- [Software Sustainability Institute](https://www.software.ac.uk/)
-- [US-RSE](https://us-rse.org/)
+- [Choose a License](https://choosealicense.com/)
+- [CodeMeta Generator](https://codemeta.github.io/codemeta-generator/)
+- [CFF Initializer](https://citation-file-format.github.io/cff-initializer-javascript/)
+- [howfairis](https://github.com/fair-software/howfairis)
+- [Zenodo](https://zenodo.org/)
 
 </div>
 
