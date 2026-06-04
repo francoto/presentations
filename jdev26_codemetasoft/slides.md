@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: https://unsplash.com/photos/eFbxYl9M_lc/download?force=true&w=1920
+background: 
 title: Métadonnées et FAIRness
 info: |
   ## Comment ajouter des métadonnées pour vos logiciels de recherche
@@ -19,44 +19,30 @@ aspectRatio: 16/9
 download: true
 ---
 
-# Métadonnées et logiciel de recherche
+# Metadata Quality for Research Software
 
 Plan
 
-1. Métadonnées et FAIRness
-2. TP : générer votre codemeta.json
-3. Maintenance
-4. TP : installer une CI pour contrôler ses métadonnées
-5. Publication de notre logiciel de recherche
+1. FAIRness and metadata
+2. TP : generate a codemeta.json
+3. Maintaining metadata up to date
+4. TP : install a CI to check metadata
+5. Publication
 
 
 ---
+layout: center
+class: text-center
+---
 
-# C'est quoi une métadonnée ?
-
-- donnée structurée qui donne du contexte, des caractéristiques sur un autre élément
-
-Métadonnées pour image : horodatage, lieu, appareil photo utilisé, auteur, ...
-Métadonnées pour un livre : auteur, éditions, nombre de pages, thèmes abordés, langue, format, ...
-
-Métadonnées permet 
-- décrire
-- catégoriser
-- informer (instructions pour utilisation)
+# FAIRness and Metadata for Research Software
 
 ---
 
-# Métadonnées pour le logiciel et principe FAIR
-
-level: 2
----
-
-# The Missing Dimension: FAIRness
+## What is FAIR?
 
 <div class="grid grid-cols-2 gap-8">
 <div>
-
-## What is FAIR?
 
 <v-click>
 
@@ -80,9 +66,9 @@ FAIRness is about discoverability and reusability
 
 ## FAIR vs Quality
 
-- FAIR ⊂ Quality Software
-- FAIR ensures **discoverability** & **reusability**
-- Quality includes **correctness**, **performance**, **testing**
+- FAIR ⊂ Software Quality
+- FAIR ensures **discoverabilty** & **reusability**
+- Quality includes **correctness**, **performances**, **testing**
 
 </v-click>
 
@@ -248,9 +234,353 @@ Translating abstract principles into concrete tools and files in your repository
 
 </div>
 
+---
+level: 2
+---
+
+# Software Metadata
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+## What is Metadata?
+
+<v-click>
+
+Structured data describing your software:
+
+</v-click>
+
+<v-click>
+
+- 📝 Name, version, description
+- 👥 Authors, contributors
+- ⚖️ License
+- 🔗 Repository URL
+- 🐍 Programming language
+- 📦 Dependencies
+- 📄 Documentation links
+
+</v-click>
+
+<div v-click class="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded text-sm">
+💡 Machine-readable metadata enables discoverability & automation
+</div>
+
+</div>
+
+<div>
+
+<v-click>
+
+## Why It Matters
+
+</v-click>
+
+<v-click>
+
+- 🔍 **Findability** - Search engines can discover it
+- 🤖 **Automation** - Tools can process it
+- 🔄 **Interoperability** - Different platforms understand it
+- 📚 **Archives** - Zenodo, Software Heritage can ingest it
+- 📖 **Citation** - Automatic citation generation
+
+</v-click>
+
+<div v-click class="mt-4 p-3 bg-purple-50 dark:bg-purple-900 rounded text-sm">
+Different use cases need different metadata:<br>
+<ul>
+<li>Citation: Authors, DOI</li>
+<li>Replication: Dependencies, versions</li>
+<li>Discovery: Keywords, description</li>
+</ul> 
+</div>
+
+</div>
+</div>
+
+<div class="abs-br m-6 text-sm opacity-50">
+Source: RSQKit - Software Metadata
+</div>
+
+<!--
+Metadata is the key to making software FAIR. It bridges human and machine understanding.
+-->
+
+---
+zoom: 0.85
+---
+
+# Metadata Standards
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+<div>
+
+## Common Standards
+
+<v-clicks>
+
+<div>
+
+### pyproject.toml
+- Package manager metadata
+- Language-specific
+
+</div>
+
+<div>
+
+### CodeMeta
+- JSON-LD format
+- Based on Schema.org
+- `codemeta.json`
+- Widely supported (Zenodo, Software Heritage)
+
+</div>
+<div>
+
+### Citation File Format (CFF)
+- YAML format
+- Academic citation
+- `CITATION.cff`
+- GitHub native support (Shows a button "Cite this repository" automatically)
+- Zenodo support
+- Specifies prefeffed citation
+
+</div>
+</v-clicks>
+
+</div>
+
+<div v-after>
+
+## Comparison
+
+| Feature | CodeMeta | CFF |
+|---------|----------|-----|
+| Format | JSON-LD | YAML |
+| Purpose | General | Citation |
+| GitHub Support | Via API | Native |
+| Human Readable | Medium | High |
+| Machine Readable | ✔︎ | ✔︎ |
+
+<v-click>
+
+## Best Practice
+
+**Use both!**
+- `codemeta.json` for comprehensive metadata
+- `CITATION.cff` for citation
+- Plus language-specific files
+
+</v-click>
+
+</div>
+
+</div>
+
+<div class="abs-br m-6 text-sm opacity-50">
+Source: RSQKit - Software Metadata
+</div>
+
+<!--
+Different standards serve different purposes. Using multiple standards increases discoverability.
+-->
+
+---
+zoom: 1
+---
+
+# CodeMeta example
+
+<div class="grid grid-cols-12 gap-6">
+
+<div class="col-span-8">
+
+`codemeta.json`
+
+```json
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "My Research Software",
+  "description": "A tool for scientific data analysis",
+  "version": "1.0.0",
+  "author": [{
+    "@type": "Person",
+    "givenName": "Jane",
+    "familyName": "Doe",
+    "email": "jane@example.org",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Example"
+    }
+  }],
+  "license": "https://spdx.org/licenses/MIT",
+  "programmingLanguage": "Python",
+  "codeRepository": "https://github.com/user/repo"
+}
+```
+
+</div>
+
+<div class="col-span-4">
+
+### Tools:
+- [CodeMeta Generator](https://codemeta.github.io/codemeta-generator/) - Web form
+- [SOMEF](https://github.com/KnowledgeCaptureAndDiscovery/somef) - Automatic extraction
+- [autocodemeta](https://w3id.org/autocodemeta) - Automatic extraction as web service
+- [CodeMeta Lookup](https://codemeta.github.io/codemeta-lookup/) - Crosswalks
+
+</div>
+
+</div>
+
+
+<div class="abs-br m-6 text-sm opacity-50">
+Source: https://codemeta.github.io/
+</div>
+
+<!--
+CodeMeta is machine-readable and widely supported. Create it once, reuse everywhere.
+-->
 
 ---
 
-# Générer son codemeta.json
+# TP : Generate a codemeta.json
+
+- **public** url repo (Github or Gitlab)
+- Use https://autocodemeta.linkeddata.es/
+
+
+Sample repository:
+- https://github.com/SoftwareUnderstanding/sw-metadata-bot
 
 ---
+
+## TP 1 conclusion
+
+- check suggested `codemeta.json
+- add manual inputs
+  - publication if any
+  - funding
+  - contributors list
+- commit your `codemeta.json` file
+
+---
+
+
+# Metadata maintenance
+
+- update informations:
+  - modificationDate
+  - contributors
+  - dependancies requirements
+  - changelog
+  - ...
+
+A bit cumbersome to do this manually
+
+---
+
+# RSMetacheck analysis
+
+
+---
+
+# tuto: add RSMetaCheck to your repo or subscribe to the bot
+
+
+---
+
+# Publication
+
+- release 
+- Gitlab/Github are not persistent / not archiving
+
+Zenodo and Software Heritage
+
+---
+zoom: 0.8
+layout: end
+---
+
+# Resources and Further Learning
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+<div>
+
+## EVERSE RSQKit
+
+<div style="text-align: left;">
+
+- [RSQKit Home](https://everse.software/RSQKit/)
+- [FAIR Research Software](https://everse.software/RSQKit/pages/research_software/fair_research_software.html)
+- [Publishing Software](https://everse.software/RSQKit/pages/tasks/publishing_software.html)
+- [Software Metadata](https://everse.software/RSQKit/pages/tasks/software_metadata.html)
+- [Licensing](https://everse.software/RSQKit/pages/tasks/licensing_software.html)
+- [Archiving](https://everse.software/RSQKit/pages/tasks/archiving_software.html)
+
+</div>
+
+## Tools
+
+<div style="text-align: left;">
+
+- [Choose a License](https://choosealicense.com/)
+- [CodeMeta Generator](https://codemeta.github.io/codemeta-generator/)
+- [CFF Initializer](https://citation-file-format.github.io/cff-initializer-javascript/)
+- [howfairis](https://github.com/fair-software/howfairis)
+- [Zenodo](https://zenodo.org/)
+
+</div>
+
+</div>
+
+<div>
+
+## Guides & Documentation
+
+<div style="text-align: left;">
+
+- [FAIR4RS Principles](https://doi.org/10.15497/RDA00068)
+- [Software Citation Principles](https://www.force11.org/software-citation-principles)
+- [Zenodo Help](https://help.zenodo.org/)
+- [Software Heritage](https://www.softwareheritage.org/)
+- [Semantic Versioning](https://semver.org/)
+
+</div>
+
+## Community
+
+<div style="text-align: left;">
+
+- [Research Software Engineers (RSE)](https://society-rse.org/)
+- [EVERSE Project](https://everse.software/)
+- [Software Sustainability Institute](https://www.software.ac.uk/)
+- [US-RSE](https://us-rse.org/)
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-8 text-center">
+
+### Questions?
+
+tom.francois@lapp.in2p3.fr
+
+</div>
+
+<div class="abs-br m-5 text-sm opacity-50">
+presentation inspired from <a href="https://vuillaut.github.io/lectures/software_publication/">Software Publication lecture - S3 school - Thomas Vuillaume</a> ; Thank You !
+</div>
+
+<!--
+These resources will help you continue on your journey to FAIR research software.
+-->
