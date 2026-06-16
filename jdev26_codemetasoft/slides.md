@@ -23,10 +23,10 @@ download: true
 
 Plan
 
-1. FAIRness and metadata
-2. *tutorial : generate a codemeta.json*
+1. FAIRness and Metadata
+2. *Tutorial : generate a codemeta.json*
 3. Maintaining metadata up to date
-4. *tutorial : install a CI to check metadata*
+4. *Tutorial : install a CI to check metadata*
 5. Publication
 
 ---
@@ -437,6 +437,50 @@ Source: https://codemeta.github.io/
 <!--
 CodeMeta is machine-readable and widely supported. Create it once, reuse everywhere.
 -->
+---
+
+# Codemetasoft project
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+  <div style="text-align: left;">
+
+  https://w3id.org/codemetasoft/
+
+  funded by: [OSCARS](https://oscars-project.eu/)
+
+  partners: Universidad Politécnica de Madrid, Laboratoire d'Annecy de Physique des Particules (LAPP, CNRS)  
+  </div>
+
+  ![Codemetasoft logo](./binaries/logos/codemetasoft_logo.png)
+
+</div>
+
+
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+<div v-click style="text-align: left;">
+
+**Goal of the project**:
+
+- Ease the adoption of Research Software metadata & good practices
+- Automate metadata propagation and interoperability
+- Propose suggestions for researchers
+
+</div>
+
+
+<div v-click style="text-align: left;">
+
+### Tools
+
+- [Autocodemeta](https://autocodemeta.linkeddata.es/)
+- [RSMetacheck](https://github.com/SoftwareUnderstanding/RsMetaCheck)
+- [sw-metadata-bot](https://github.com/SoftwareUnderstanding/sw-metadata-bot)
+
+</div>
+
+</div>
 
 ---
 layout: center
@@ -457,7 +501,7 @@ class: text-center
 ### Instructions
 
 - Go on https://autocodemeta.linkeddata.es/
-- provide your **public** url repo (Github or Gitlab)
+- Provide your **public** url repository (Github or Gitlab)
 
 <div v-click class="mt-1 p-2 bg-blue-50 dark:bg-blue-900 rounded text-sm">
 
@@ -504,7 +548,7 @@ class: text-center
 
 <div v-click>
 
-During the software developpment 
+During the software development:
 
 </div>
 
@@ -514,7 +558,7 @@ During the software developpment
   - modificationDate
   - version number
   - contributors
-  - dependancies requirements
+  - dependencies requirements
   - changelog
   - ...
 </div>
@@ -525,29 +569,43 @@ During the software developpment
 
 - a bit cumbersome to do this manually
 - prone to error
+
 </div>
 
 ---
 
-## Solution : RSMetacheck analysis
+## Solution:
 
-https://github.com/SoftwareUnderstanding/RsMetaCheck
+### RSMetacheck analysis
+
+<div v-click>
+
+`https://github.com/SoftwareUnderstanding/RsMetaCheck`
 
 based on [SoMeF](https://github.com/KnowledgeCaptureAndDiscovery/somef) 
-- indentifies pitfalls and warnings
+- identifies pitfalls and warnings
 - provides suggestions to fix them
+- (new) use configuration file
+</div>
 
-## How to use it :
+<div v-click>
+
+#### How to use it :
 - install python package locally
-- use Github Action or in gitlab-ci
+- use in your own CI (Github or Gitlab)
 
-Good to maintain your own repositories
+
+💡 Good to maintain your own repositories
+
+</div>
 
 ---
 
 ## sw-metadata-bot
 
 for group maintainers 👥
+`https://github.com/SoftwareUnderstanding/sw-metadata-bot`
+use `RMetacheck`analysis to create Github/Gitlab issues
 
 <div v-click>
 
@@ -567,7 +625,7 @@ for group maintainers 👥
 
 <div v-click class="mt-1 p-4 bg-orange-50 dark:bg-yellow-900 rounded">
 
-feedback are welcome (submit issues here) [TBD]
+feedback are welcome as [sw-metadata-bot issues](https://github.com/SoftwareUnderstanding/sw-metadata-bot/issues/new?template=feedback.yml)
 
 </div>
 
@@ -589,13 +647,15 @@ zoom:0.5
 ---
 
 ## Tutorial 2 
-- add RSMetaCheck to your repo 
+- add RSMetaCheck to your repo
+  - add github action -> [rs-metacheck-action](https://github.com/SoftwareUnderstanding/rs-metacheck-action)
+  - **or** add a step in your gitlab-ci pipeline -> [gitlab-ci snippet](https://rsmetacheck.readthedocs.io/en/latest/usage/#gitlab-cicd)  
 - (or) subscribe to the bot
 
 ---
 
 ### Add RSMetacheck in your CI
-for github:
+
 
 ```yaml
 name: RsMetaCheck Validation
@@ -617,7 +677,6 @@ jobs:
         uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
         # optional arguments
         with:
-          input: https://github.com/$GITHUB_REPOSITORY # if input is omited it will use GITHUB_REPOSITORY url
           pitfalls_output: "./pitfalls_outputs" 
           verbose: "false"
 ```
@@ -652,7 +711,7 @@ rsmetacheck:
 
 ### Subscribe to the bot
 
-[TBD]
+https://github.com/SoftwareUnderstanding/sw-metadata-bot/issues/new?template=subscribe.yml
 
 
 ---
@@ -843,11 +902,16 @@ Zenodo and Software Heritage serve complementary purposes. Both are free and tru
 
 ---
 
-# Demo Zenodo
-
-Show on sw-metadata
-
 # Demo Software Heritage
+
+- [SH sw-metadata-bot](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/SoftwareUnderstanding/sw-metadata-bot&visit_type=git)
+
+
+---
+
+## Conclusion
+
+
 
 ---
 zoom: 0.8
@@ -931,3 +995,37 @@ presentation inspired from <a href="https://vuillaut.github.io/lectures/software
 <!--
 These resources will help you continue on your journey to FAIR research software.
 -->
+
+---
+
+## Backup Slides
+
+---
+
+## Publish on Zenodo
+
+Zenodo is not using codemeta.json natively
+
+it requires converting `codemeta.json` content to `.zenodo`
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+
+<div style="text-align: left;">
+
+### GitHub
+
+CodeMeta2Zenodo action
+
+GitHub-Zenodo integration OR eossr snippet in CI
+
+</div>
+
+<div style="text-align: left;">
+
+### GitLab
+
+eossr snippet in CI (CodeMeta -> Zenodo + Publication)
+
+</div>
+
+</div>
