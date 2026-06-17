@@ -14,14 +14,15 @@ drawings:
 transition: slide-left
 mdc: true
 duration: 60min
-layout: cover
 aspectRatio: 16/9
 download: true
+layout: image
+image: ./binaries/landingpage.png
 ---
 
-# Metadata Quality for Research Software
+---
 
-Plan
+## Plan
 
 1. FAIRness and Metadata
 2. *Tutorial : generate a codemeta.json*
