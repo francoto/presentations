@@ -2,6 +2,8 @@
 theme: seriph
 background:
 title: Métadonnées et FAIRness
+titleTemplate: '%s - Métadonnées et FAIRness'
+author: Tom François
 info: |
   ## Comment ajouter des métadonnées pour vos logiciels de recherche
   Un atelier pour mettre en place, maintenir et publier vos métadonnées
@@ -9,6 +11,8 @@ info: |
   Plus d'infos sur [Codemetasoft](https://w3id.org/codemetasoft)
   Basé sur les ressources EVERSE RSQKit et le project Codemetasoft.
 class: text-center
+layout: image
+image: ./binaries/landingpage.png
 drawings:
   persist: false
 transition: slide-left
@@ -16,8 +20,14 @@ mdc: true
 duration: 60min
 aspectRatio: 16/9
 download: true
-layout: image
-image: ./binaries/landingpage.png
+# filename of the export file
+exportFilename: codemetasoft_jdev26
+export:
+  format: pdf
+  timeout: 30000
+  dark: false
+  withClicks: false
+  withToc: false
 ---
 
 ---
