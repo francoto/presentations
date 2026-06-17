@@ -472,7 +472,7 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
 
 <div v-click style="text-align: left;">
 
-**Goal of the project**:
+**Goals of the project**:
 
 - Ease the adoption of Research Software metadata & good practices
 - Automate metadata propagation and interoperability
@@ -537,7 +537,7 @@ class: text-center
 
 <div v-click class="col-span-4">
 
-### Summary
+### Conclusion
 
 
 - commit your `codemeta.json`
@@ -587,11 +587,13 @@ During the software development:
 
 ## Solution:
 
-### RSMetacheck analysis
+### RSMetacheck
 
 <div v-click>
 
 `https://github.com/SoftwareUnderstanding/RsMetaCheck`
+
+analyse repositories
 
 based on [SoMeF](https://github.com/KnowledgeCaptureAndDiscovery/somef) 
 - identifies pitfalls and warnings
@@ -614,24 +616,48 @@ based on [SoMeF](https://github.com/KnowledgeCaptureAndDiscovery/somef)
 
 ## sw-metadata-bot
 
-for group maintainers 👥
+for project managers 👥
+
 `https://github.com/SoftwareUnderstanding/sw-metadata-bot`
-use `RMetacheck`analysis to create Github/Gitlab issues
 
-<div v-click>
+- use `RMetacheck`analysis to create Github/Gitlab issues.
+- eventually, "dependabot" for metadata
 
-🖼️ Snapshot of one sample issue [TBD]
+<div class="grid grid-cols-2 gap-2">
+
+
+<div v-click style="text-align: left;">
+
+## Issue creation
+
+[issue example](https://github.com/SoftwareUnderstanding/RsMetaCheck/issues/76)
+
+![report snapshot](./binaries/swmetadatabot_report_issue.png)
+</div>
+
+<div v-click style="text-align: left;">
+
+## Dashboard
+
+[web report](https://softwareunderstanding.github.io/sw-metadata-bot-monitor-web/)
+
+![dashboard](./binaries/swmetadatabot_web_report.png)
 
 </div>
 
-<div v-click>
-
-🖼️ Snapshot of the dashboard [TBD]
-
 </div>
+
+---
+
+# Current Stage
+
+`RSMetacheck` and  `sw-metadata-bot`
 
 <div v-click class="mt-1 p-4 bg-yellow-50 dark:bg-yellow-900 rounded">
-⚠️ still in beta stage: some false positive, some suggestions not accurate
+
+⚠️ still in beta stage: 
+- some false positive
+- some suggestions not accurate
 </div>
 
 <div v-click class="mt-1 p-4 bg-orange-50 dark:bg-yellow-900 rounded">
@@ -644,6 +670,7 @@ feedback are welcome as [sw-metadata-bot issues](https://github.com/SoftwareUnde
 
 future : create a GitHub action to generate PR with automatic fixes.
 </div>
+
 
 ---
 layout: center
