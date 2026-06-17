@@ -101,45 +101,45 @@ zoom: 0.85
 <div class="p-3 border border-blue-200 rounded-lg bg-blue-50/30 dark:bg-blue-900/10">
 <h3 class="text-blue-600 font-bold mb-1 flex items-center gap-2"><carbon:search /> F.indable</h3>
 <p class="mb-2 italic opacity-70">Easy for humans and machines to find.</p>
-<ul class="list-none p-0 space-y-1">
-  <li v-click><b>F1.</b> Assigned unique & persistent ID (DOI)</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>F1.1.</b> IDs for different components</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>F1.2.</b> IDs for different versions</li>
-  <li v-click><b>F2.</b> Described with rich metadata</li>
-  <li v-click><b>F3.</b> Metadata explicitly points to ID</li>
-  <li v-click><b>F4.</b> Metadata are searchable & indexable</li>
+<ul v-click class="list-none p-0 space-y-1">
+  <li><b>F1.</b> Assigned unique & persistent ID (DOI)</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>F1.1.</b> IDs for different components</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>F1.2.</b> IDs for different versions</li>
+  <li><b>F2.</b> Described with rich metadata</li>
+  <li><b>F3.</b> Metadata explicitly points to ID</li>
+  <li><b>F4.</b> Metadata are searchable & indexable</li>
 </ul>
 </div>
 
 <div class="p-3 border border-green-200 rounded-lg bg-green-50/30 dark:bg-green-900/10">
 <h3 class="text-green-600 font-bold mb-1 flex items-center gap-2"><carbon:cloud-download /> A.ccessible</h3>
 <p class="mb-2 italic opacity-70">Retrievable via standard protocols.</p>
-<ul class="list-none p-0 space-y-1">
-  <li v-click><b>A1.</b> Retrievable by ID using standard protocols</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>A1.1.</b> Open, free & universal protocol</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>A1.2.</b> Auth/Auth procedure where needed</li>
-  <li v-click><b>A2.</b> Metadata persists even if software is gone</li>
+<ul v-click class="list-none p-0 space-y-1">
+  <li><b>A1.</b> Retrievable by ID using standard protocols</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>A1.1.</b> Open, free & universal protocol</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>A1.2.</b> Auth/Auth procedure where needed</li>
+  <li><b>A2.</b> Metadata persists even if software is gone</li>
 </ul>
 </div>
 
 <div class="p-3 border border-purple-200 rounded-lg bg-purple-50/30 dark:bg-purple-900/10">
 <h3 class="text-purple-600 font-bold mb-1 flex items-center gap-2"><carbon:connect /> I.nteroperable</h3>
 <p class="mb-2 italic opacity-70">Exchange data and interact via APIs.</p>
-<ul class="list-none p-0 space-y-1">
-  <li v-click><b>I1.</b> Meets community standards for exchange</li>
-  <li v-click><b>I2.</b> Includes qualified references to other objects</li>
+<ul v-click class="list-none p-0 space-y-1">
+  <li><b>I1.</b> Meets community standards for exchange</li>
+  <li><b>I2.</b> Includes qualified references to other objects</li>
 </ul>
 </div>
 
 <div class="p-3 border border-orange-200 rounded-lg bg-orange-50/30 dark:bg-orange-900/10">
 <h3 class="text-orange-600 font-bold mb-1 flex items-center gap-2"><carbon:recycle /> R.eusable</h3>
 <p class="mb-2 italic opacity-70">Understandable, modifiable, and buildable.</p>
-<ul class="list-none p-0 space-y-1">
-  <li v-click><b>R1.</b> Rich and accurate attributes</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>R1.1.</b> Clear and accessible License</li>
-  <li v-click class="ml-3 opacity-80 border-l-2 pl-2"><b>R1.2.</b> Detailed provenance & history</li>
-  <li v-click><b>R2.</b> References to other software</li>
-  <li v-click><b>R3.</b> Meets domain-relevant community standards</li>
+<ul v-click class="list-none p-0 space-y-1">
+  <li><b>R1.</b> Rich and accurate attributes</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>R1.1.</b> Clear and accessible License</li>
+  <li class="ml-3 opacity-80 border-l-2 pl-2"><b>R1.2.</b> Detailed provenance & history</li>
+  <li><b>R2.</b> References to other software</li>
+  <li><b>R3.</b> Meets domain-relevant community standards</li>
 </ul>
 </div>
 
@@ -339,7 +339,7 @@ zoom: 0.85
 - `CITATION.cff`
 - GitHub native support (Shows a button "Cite this repository" automatically)
 - Zenodo support
-- Specifies prefeffed citation
+- Specifies preferred citation
 
 </div>
 </v-clicks>
