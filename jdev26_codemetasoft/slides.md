@@ -559,7 +559,7 @@ class: text-center
 - Go on https://autocodemeta.linkeddata.es/
 - Provide your **public** url repository (Github or Gitlab)
 
-<div v-click class="mt-1 p-2 bg-blue-50 dark:bg-blue-900 rounded text-sm">
+<div v-click class="mt-1 p-5 bg-blue-50 dark:bg-blue-900 rounded text-sm">
 
 💡 Sample repository:
 - https://github.com/SoftwareUnderstanding/sw-metadata-bot
@@ -627,8 +627,7 @@ class: text-center
 <div v-click>
 
 - 🧩 Repository metadata analysis
-- ❗ Missing / inconsistent fields
-- 🔧 Warnings + fix suggestions
+- ❗ Detects pitfalls or warnings in metatadata files.
 - ⚙️ Configurable via `.rsmetacheck.yml`
 
 </div>
@@ -636,8 +635,9 @@ class: text-center
 <div v-click>
 
 #### How to use it
-- 🛠️ `pip install rsmetacheck`
-- ▶️ `rsmetacheck --input $CI_PROJECT_URL`
+- locally:
+  - 🛠️ `pip install rsmetacheck`
+  - ▶️ `rsmetacheck --input $CI_PROJECT_URL`
 - 🔁 Add to GitHub / GitLab CI
 
 </div>
@@ -657,15 +657,7 @@ class: text-center
 <div v-click>
 
 - 📰 Publish RSMetacheck results as issues
-- 👀 Make metadata work visible
-- 🧾 Track metadata like code issues
-
-</div>
-
-<div v-click>
-
-- 🔄 Integrate analysis with review workflow
-- 🧹 Reduce manual follow-up
+- 👀 Eventually, *dependabot* for metadata : create automatic PR
 
 </div>
 
