@@ -604,27 +604,17 @@ class: text-center
 
 <div v-click>
 
-During the software development:
+- ⏳ Metadata must stay current during development
+- 🧾 Fields: `modificationDate`, version, contributors, deps, changelog
+- ⚠️ Manual updates are easy to miss
 
 </div>
 
 <div v-click>
 
-- update metadata information:
-  - modificationDate
-  - version number
-  - contributors
-  - dependencies requirements
-  - changelog
-  - ...
-</div>
-
-<div v-click>
-
-**Difficulties**
-
-- a bit cumbersome to do this manually
-- prone to error
+- ⏳ Manual updates cost time
+- 🧨 Risk of stale or inconsistent metadata
+- ✅ Automated checks catch issues sooner
 
 </div>
 
@@ -636,25 +626,25 @@ During the software development:
 
 <div v-click>
 
-- Analyse repository metadata using SoMeF rules
-- Detect missing or inconsistent metadata fields
-- Produce warnings and actionable suggestions
-- Optionally configurable via `.rsmetacheck.yml`
+- 🧩 Repository metadata analysis
+- ❗ Missing / inconsistent fields
+- 🔧 Warnings + fix suggestions
+- ⚙️ Configurable via `.rsmetacheck.yml`
 
 </div>
 
 <div v-click>
 
 #### How to use it
-- `pip install rsmetacheck`
-- `rsmetacheck --input $CI_PROJECT_URL`
-- or add it to GitHub / GitLab CI
+- 🛠️ `pip install rsmetacheck`
+- ▶️ `rsmetacheck --input $CI_PROJECT_URL`
+- 🔁 Add to GitHub / GitLab CI
 
 </div>
 
 <div v-click>
 
-💡 Good for maintainers who want automated metadata checks in their workflow
+💡 Good for maintainers
 
 </div>
 
@@ -662,19 +652,31 @@ During the software development:
 
 ## sw-metadata-bot
 
-for project managers 👥
-
 `https://github.com/SoftwareUnderstanding/sw-metadata-bot`
 
-- use `RMetacheck`analysis to create Github/Gitlab issues.
-- eventually, "dependabot" for metadata
+<div v-click>
 
-<div class="grid grid-cols-2 gap-2">
+- 📰 Publish RSMetacheck results as issues
+- 👀 Make metadata work visible
+- 🧾 Track metadata like code issues
 
+</div>
+
+<div v-click>
+
+- 🔄 Integrate analysis with review workflow
+- 🧹 Reduce manual follow-up
+
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
 <div v-click style="text-align: left;">
 
-## Issue creation
+### Issue creation
+
+- 📝 Issue from RSMetacheck analysis
+- ✅ Assign and track metadata fixes
 
 [issue example](https://github.com/SoftwareUnderstanding/RsMetaCheck/issues/76)
 
@@ -683,7 +685,10 @@ for project managers 👥
 
 <div v-click style="text-align: left;">
 
-## Dashboard
+### Dashboard
+
+- 📊 Web report for metadata status
+- Monitor progress over time
 
 [web report](https://softwareunderstanding.github.io/sw-metadata-bot-monitor-web/)
 
