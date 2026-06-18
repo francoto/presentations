@@ -34,11 +34,59 @@ export:
 
 ## Plan
 
-1. FAIRness and Metadata
-2. *Tutorial : generate a codemeta.json*
-3. Maintaining metadata up to date
-4. *Tutorial : install a CI to check metadata*
-5. Publication
+<div class="space-y-2 text-left max-w-2xl mx-auto">
+
+<div class="rounded-2xl border border-slate-300 bg-slate-100/80 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-1">📌</span>
+    <div>
+      <div class="font-semibold text-base">1. FAIRness and Metadata</div>
+      <div class="text-sm opacity-75">Concepts and why metadata matters</div>
+    </div>
+  </div>
+</div>
+
+<div class="rounded-2xl border border-emerald-300 bg-emerald-50/90 p-4 shadow-sm dark:border-emerald-500 dark:bg-emerald-950/30">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-1">💻</span>
+    <div>
+      <div class="font-semibold text-base">2. Tutorial: generate a codemeta.json</div>
+      <div class="text-sm opacity-75">Hands-on step for your laptop</div>
+    </div>
+  </div>
+</div>
+
+<div class="rounded-2xl border border-slate-300 bg-slate-100/80 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-1">📌</span>
+    <div>
+      <div class="font-semibold text-base">3. Maintaining metadata up to date</div>
+      <div class="text-sm opacity-75">Best practices for keeping metadata current</div>
+    </div>
+  </div>
+</div>
+
+<div class="rounded-2xl border border-emerald-300 bg-emerald-50/90 p-4 shadow-sm dark:border-emerald-500 dark:bg-emerald-950/30">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-1">💻</span>
+    <div>
+      <div class="font-semibold text-base">4. Tutorial: install a CI to check metadata</div>
+      <div class="text-sm opacity-75">Set up automated metadata validation</div>
+    </div>
+  </div>
+</div>
+
+<div class="rounded-2xl border border-slate-300 bg-slate-100/80 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl mt-1">📌</span>
+    <div>
+      <div class="font-semibold text-base">5. Publication</div>
+      <div class="text-sm opacity-75">How to publish and archive your software</div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 layout: center
