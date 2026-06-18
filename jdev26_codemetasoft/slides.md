@@ -561,7 +561,7 @@ class: text-center
 
 <div v-click class="mt-1 p-5 bg-blue-50 dark:bg-blue-900 rounded text-sm">
 
-💡 Sample repository:
+💡 **Sample repository**:
 - https://github.com/SoftwareUnderstanding/sw-metadata-bot
 
 </div>
@@ -600,33 +600,64 @@ class: text-center
 
 ---
 
-## Metadata maintenance
+# Metadata maintenance
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+<div class="space-y-4">
+
+## Situation
+
+During development: ⏳
 
 <div v-click>
 
-- ⏳ Metadata must stay current during development
-- 🧾 Fields: `modificationDate`, version, contributors, deps, changelog
-- ⚠️ Manual updates are easy to miss
-
+- new contributor fixed a bug
+- dependencies updated
+- ...
 </div>
 
 <div v-click>
 
-- ⏳ Manual updates cost time
+Metadata need to be updated:
+  - modificationDate
+  - contributors list
+  - version number
+  - dependencies requirements
+  - changelog
+  ...
+
+</div>
+</div>
+
+<div class="space-y-4">
+<div v-click>
+
+## Problem
+
+- ⏳ Manual updates cost time and prone to error
 - 🧨 Risk of stale or inconsistent metadata
-- ✅ Automated checks catch issues sooner
-
 </div>
 
+<div v-click>
+
+## Solution ?
+  Create automatic process ?
+</div>
+</div>
+
+</div>
 ---
 
-## RSMetacheck
+# RSMetacheck
 
 `https://github.com/SoftwareUnderstanding/RsMetaCheck`
 
 <div v-click>
 
-- 🧩 Repository metadata analysis
+## Features
+
+- 🧩 Repository metadata analysis (based on [`SoMeF`](https://github.com/KnowledgeCaptureAndDiscovery/somef))
 - ❗ Detects pitfalls or warnings in metatadata files.
 - ⚙️ Configurable via `.rsmetacheck.yml`
 
@@ -634,11 +665,13 @@ class: text-center
 
 <div v-click>
 
-#### How to use it
-- locally:
+## How to use it
+
+### locally:
   - 🛠️ `pip install rsmetacheck`
   - ▶️ `rsmetacheck --input $CI_PROJECT_URL`
-- 🔁 Add to GitHub / GitLab CI
+### in Continuous Integration pipeline
+- 🔁 Use dedicated Github Action / GitLab CI
 
 </div>
 
@@ -668,7 +701,6 @@ class: text-center
 ### Issue creation
 
 - 📝 Issue from RSMetacheck analysis
-- ✅ Assign and track metadata fixes
 
 [issue example](https://github.com/SoftwareUnderstanding/RsMetaCheck/issues/76)
 
@@ -680,7 +712,7 @@ class: text-center
 ### Dashboard
 
 - 📊 Web report for metadata status
-- Monitor progress over time
+- 👀 Monitor progress over time
 
 [web report](https://softwareunderstanding.github.io/sw-metadata-bot-monitor-web/)
 
