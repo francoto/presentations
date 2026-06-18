@@ -476,15 +476,6 @@ zoom: 1
 
 </div>
 
-<div class="col-span-4">
-
-### Tools:
-- [CodeMeta Generator](https://codemeta.github.io/codemeta-generator/) - Web form
-- [SOMEF](https://github.com/KnowledgeCaptureAndDiscovery/somef) - Automatic extraction
-- [autocodemeta](https://w3id.org/autocodemeta) - Automatic extraction as web service
-- [CodeMeta Lookup](https://codemeta.github.io/codemeta-lookup/) - Crosswalks
-
-</div>
 
 </div>
 
@@ -503,11 +494,13 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
 
   <div style="text-align: left;">
 
-  https://w3id.org/codemetasoft/
+  
 
-  funded by: [OSCARS](https://oscars-project.eu/)
+  **funded by**: [OSCARS](https://oscars-project.eu/)
 
-  partners: Universidad Politécnica de Madrid, Laboratoire d'Annecy de Physique des Particules (LAPP, CNRS)  
+  #### partners 
+  - Universidad Politécnica de Madrid
+  - Laboratoire d'Annecy de Physique des Particules (LAPP, CNRS)  
   </div>
 
   ![Codemetasoft logo](./binaries/logos/codemetasoft_logo.png)
@@ -520,7 +513,7 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
 
 <div v-click style="text-align: left;">
 
-**Goals of the project**:
+### Goals of the project
 
 - Ease the adoption of Research Software metadata & good practices
 - Automate metadata propagation and interoperability
@@ -533,12 +526,16 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
 
 ### Tools
 
-- [Autocodemeta](https://autocodemeta.linkeddata.es/)
-- [RSMetacheck](https://github.com/SoftwareUnderstanding/RsMetaCheck)
-- [sw-metadata-bot](https://github.com/SoftwareUnderstanding/sw-metadata-bot)
+- [Autocodemeta](https://autocodemeta.linkeddata.es/) => Create codemeta.json from scratch
+- [RSMetacheck](https://github.com/SoftwareUnderstanding/RsMetaCheck) => analyze your metadata
+- [sw-metadata-bot](https://github.com/SoftwareUnderstanding/sw-metadata-bot) => publish RSMetacheck analysis
 
 </div>
 
+</div>
+
+<div class="abs-br m-6 text-sm opacity-50">
+https://w3id.org/codemetasoft/
 </div>
 
 ---
@@ -633,30 +630,31 @@ During the software development:
 
 ---
 
-## Solution:
-
-### RSMetacheck
-
-<div v-click>
+## RSMetacheck
 
 `https://github.com/SoftwareUnderstanding/RsMetaCheck`
 
-analyse repositories
+<div v-click>
 
-based on [SoMeF](https://github.com/KnowledgeCaptureAndDiscovery/somef) 
-- identifies pitfalls and warnings
-- provides suggestions to fix them
-- (new) use configuration file
+- Analyse repository metadata using SoMeF rules
+- Detect missing or inconsistent metadata fields
+- Produce warnings and actionable suggestions
+- Optionally configurable via `.rsmetacheck.yml`
+
 </div>
 
 <div v-click>
 
-#### How to use it :
-- install python package locally
-- use in your own CI (Github or Gitlab)
+#### How to use it
+- `pip install rsmetacheck`
+- `rsmetacheck --input $CI_PROJECT_URL`
+- or add it to GitHub / GitLab CI
 
+</div>
 
-💡 Good to maintain your own repositories
+<div v-click>
+
+💡 Good for maintainers who want automated metadata checks in their workflow
 
 </div>
 
