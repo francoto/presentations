@@ -2,21 +2,17 @@
 
 Un ensemble de présentations avec slidev
 
-## Usage
+## Usage local
 
-
-### (optional) install pnpm
-
+install
 ```bash
-npm install -g pnpm
+npm install
 ```
 
-### Install package
+run presentation jdev26
 
 ```bash
-# install package
-pnpm install
-
-# then run
-pnpm dev
+npm run dev:jdev26
 ```
+
+The presentation would be visible following the `http://localhost:3030`

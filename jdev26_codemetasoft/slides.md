@@ -1017,7 +1017,10 @@ Zenodo and Software Heritage serve complementary purposes. Both are free and tru
 
 ## Conclusion
 
-
+- Metadata => FAIR => Quality
+- Maintain Metadata up to date takes time
+  - RSMetacheck and sw-metadata-bot to automatize the process
+- Metadata and Software Publication
 
 ---
 zoom: 0.8
