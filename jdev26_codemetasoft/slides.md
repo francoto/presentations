@@ -13,7 +13,7 @@ info: |
 class: text-center
 base: /presentations/jdev26/
 layout: image
-image: /landingpage.png
+image: ./binaries/landingpage.png
 drawings:
   persist: false
 transition: slide-left
@@ -504,7 +504,7 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
   - Laboratoire d'Annecy de Physique des Particules (LAPP, CNRS)  
   </div>
 
-  ![Codemetasoft logo](/logos/codemetasoft_logo.png)
+  <img src="./binaries/logos/codemetasoft_logo.png" />
 
 </div>
 
@@ -705,7 +705,7 @@ Metadata need to be updated:
 
 [issue example](https://github.com/SoftwareUnderstanding/RsMetaCheck/issues/76)
 
-![report snapshot](/swmetadatabot_report_issue.png)
+<img src="./binaries/swmetadatabot_report_issue.png" />
 </div>
 
 <div v-click style="text-align: left;">
@@ -717,7 +717,7 @@ Metadata need to be updated:
 
 [web report](https://softwareunderstanding.github.io/sw-metadata-bot-monitor-web/)
 
-![dashboard](/swmetadatabot_web_report.png)
+<img src="./binaries/swmetadatabot_web_report.png" />
 
 </div>
 
