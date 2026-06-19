@@ -11,8 +11,9 @@ info: |
   Plus d'infos sur [Codemetasoft](https://w3id.org/codemetasoft)
   Basé sur les ressources EVERSE RSQKit et le project Codemetasoft.
 class: text-center
+base: /presentations/jdev26/
 layout: image
-image: ./binaries/landingpage.png
+image: /landingpage.png
 drawings:
   persist: false
 transition: slide-left
@@ -503,7 +504,7 @@ CodeMeta is machine-readable and widely supported. Create it once, reuse everywh
   - Laboratoire d'Annecy de Physique des Particules (LAPP, CNRS)  
   </div>
 
-  ![Codemetasoft logo](./binaries/logos/codemetasoft_logo.png)
+  ![Codemetasoft logo](/logos/codemetasoft_logo.png)
 
 </div>
 
@@ -704,7 +705,7 @@ Metadata need to be updated:
 
 [issue example](https://github.com/SoftwareUnderstanding/RsMetaCheck/issues/76)
 
-![report snapshot](./binaries/swmetadatabot_report_issue.png)
+![report snapshot](/swmetadatabot_report_issue.png)
 </div>
 
 <div v-click style="text-align: left;">
@@ -716,7 +717,7 @@ Metadata need to be updated:
 
 [web report](https://softwareunderstanding.github.io/sw-metadata-bot-monitor-web/)
 
-![dashboard](./binaries/swmetadatabot_web_report.png)
+![dashboard](/swmetadatabot_web_report.png)
 
 </div>
 
