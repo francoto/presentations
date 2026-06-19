@@ -21,14 +21,6 @@ mdc: true
 duration: 60min
 aspectRatio: 16/9
 download: true
-# filename of the export file
-exportFilename: codemetasoft_jdev26
-export:
-  format: pdf
-  timeout: 30000
-  dark: false
-  withClicks: false
-  withToc: false
 ---
 
 ---
