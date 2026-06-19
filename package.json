@@ -2,11 +2,10 @@
   "name": "presentations",
   "private": true,
   "scripts": {
-    "build:index": "slidev build --base /presentations/ --out dist",
-    "build:jdev26": "cd jdev26_codemetasoft && slidev build --base /presentations/jdev26_codemetasoft/ --out ../dist/jdev26_codemetasoft",
-    "build": "npm run build:index && npm run build:jdev26",
-    "dev": "slidev",
-    "dev:jdev26": "cd jdev26_codemetasoft && slidev"
+    "dev:jdev26": "slidev jdev26_codemetasoft/slides.md",
+    "build:index": "slidev build slides.md --base /presentations/ --out dist",
+    "build:jdev26": "slidev build jdev26_codemetasoft/slides.md --base /presentations/jdev26_codemetasoft/ --out dist/jdev26_codemetasoft",
+    "build": "npm run build:index && npm run build:jdev26"
   },
   "devDependencies": {
     "@slidev/cli": "^52.11.3",
