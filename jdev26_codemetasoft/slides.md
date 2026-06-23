@@ -601,7 +601,7 @@ class: text-center
 
 ## Situation
 
-During development: ⏳
+### During development: ⏳
 
 <div v-click>
 
@@ -612,7 +612,7 @@ During development: ⏳
 
 <div v-click>
 
-Metadata need to be updated:
+### Metadata need to be updated:
   - modificationDate
   - contributors list
   - version number
@@ -661,9 +661,12 @@ Metadata need to be updated:
 ## How to use it
 
 ### locally:
+
   - 🛠️ `pip install rsmetacheck`
-  - ▶️ `rsmetacheck --input $CI_PROJECT_URL`
+  - ▶️ `rsmetacheck --input <url_repo>`
+
 ### in Continuous Integration pipeline
+
 - 🔁 Use dedicated Github Action / GitLab CI
 
 </div>
@@ -676,7 +679,7 @@ Metadata need to be updated:
 
 ---
 
-## sw-metadata-bot
+# sw-metadata-bot
 
 `https://github.com/SoftwareUnderstanding/sw-metadata-bot`
 
@@ -691,7 +694,7 @@ Metadata need to be updated:
 
 <div v-click style="text-align: left;">
 
-### Issue creation
+## Issue creation
 
 - 📝 Issue from RSMetacheck analysis
 
@@ -702,7 +705,7 @@ Metadata need to be updated:
 
 <div v-click style="text-align: left;">
 
-### Dashboard
+## Dashboard
 
 - 📊 Web report for metadata status
 - 👀 Monitor progress over time
@@ -730,13 +733,13 @@ Metadata need to be updated:
 
 <div v-click class="mt-1 p-4 bg-orange-50 dark:bg-yellow-900 rounded">
 
-feedback are welcome as [sw-metadata-bot issues](https://github.com/SoftwareUnderstanding/sw-metadata-bot/issues/new?template=feedback.yml)
+feedback are welcome 🤝 [sw-metadata-bot issues](https://github.com/SoftwareUnderstanding/sw-metadata-bot/issues/new?template=feedback.yml)
 
 </div>
 
 <div v-click class="mt-4 p-1 bg-green-50 dark:bg-yellow-900 rounded">
 
-future : create a GitHub action to generate PR with automatic fixes.
+future : create a GitHub action to generate PR with automatic fixes (like *dependabot*)
 </div>
 
 
@@ -752,7 +755,7 @@ class: text-center
 zoom:0.5
 ---
 
-## Tutorial 2 
+# Tutorial 2 
 - add RSMetaCheck to your repo
   - add github action -> [rs-metacheck-action](https://github.com/SoftwareUnderstanding/rs-metacheck-action)
   - **or** add a step in your gitlab-ci pipeline -> [gitlab-ci snippet](https://rsmetacheck.readthedocs.io/en/latest/usage/#gitlab-cicd)  
@@ -760,7 +763,7 @@ zoom:0.5
 
 ---
 
-### Add RSMetacheck in your CI
+## Add RSMetacheck in your CI
 
 
 ```yaml
@@ -789,9 +792,11 @@ jobs:
 
 https://github.com/marketplace/actions/rsmetacheck
 
+Example job : https://github.com/SoftwareUnderstanding/sw-metadata-bot/actions/runs/27609849187
+
 ---
 
-### Add RSMetacheck in your CI
+## Add RSMetacheck in your CI
 for gitlab:
 
 in `.gitlab_ci.yml`
@@ -815,17 +820,21 @@ rsmetacheck:
 
 ---
 
-### Subscribe to the bot
+## Subscribe to the bot
+
+Open an issue on Github
 
 https://github.com/SoftwareUnderstanding/sw-metadata-bot/issues/new?template=subscribe.yml
 
+
+Provide the url of your repository
 
 ---
 layout: center
 class: text-center
 ---
 
-# Publication
+# Software Publication
 
 ---
 level: 2
@@ -1008,19 +1017,25 @@ Zenodo and Software Heritage serve complementary purposes. Both are free and tru
 
 ---
 
-# Demo Software Heritage
+# Demo : Software Publication with Software Heritage
+
+- visit https://archive.softwareheritage.org/
+- `Save code now` with the url of your repository as input.
+
+
+## Example
 
 - [SH sw-metadata-bot](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/SoftwareUnderstanding/sw-metadata-bot&visit_type=git)
 
 
 ---
 
-## Conclusion
+# Conclusion
 
-- Metadata => FAIR => Quality
-- Maintain Metadata up to date takes time
-  - RSMetacheck and sw-metadata-bot to automatize the process
-- Metadata and Software Publication
+- **Metadata Quality** is a strong asset to ensure FAIRness (Discoverability 🔍 + Reusability ⚙️)
+- Maintain Metadata up to date takes time ⏳
+  - *RSMetacheck* and *sw-metadata-bot* to automatize the process
+- Metadata and Software Publication with *Zenodo* or *Software Heritage* 🏛️
 
 ---
 zoom: 0.8
@@ -1106,16 +1121,21 @@ These resources will help you continue on your journey to FAIR research software
 -->
 
 ---
+layout: center
+class: text-center
+---
 
-## Backup Slides
+# Backup Slides
 
 ---
 
-## Publish on Zenodo
+# Software publication on Zenodo
 
 Zenodo is not using codemeta.json natively
 
 it requires converting `codemeta.json` content to `.zenodo`
+
+You can try on `https://sandbox.zenodo.org/` instead of real `Zenodo.org` to test it.
 
 <div class="grid grid-cols-2 gap-6 text-sm">
 
@@ -1123,9 +1143,9 @@ it requires converting `codemeta.json` content to `.zenodo`
 
 ### GitHub
 
-CodeMeta2Zenodo action
+- CodeMeta2Zenodo action
 
-GitHub-Zenodo integration OR eossr snippet in CI
+- GitHub-Zenodo integration OR eossr snippet in CI
 
 </div>
 
