@@ -11,7 +11,7 @@ info: |
   Plus d'infos sur [Codemetasoft](https://w3id.org/codemetasoft)
   Basé sur les ressources EVERSE RSQKit et le project Codemetasoft.
 class: text-center
-base: /presentations/jdev26/
+base: /presentations/jdev26_codemetasoft/
 layout: image
 image: ./binaries/landingpage.png
 drawings:
