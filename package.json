@@ -8,7 +8,7 @@
     "dev:jdev26": "cd jdev26_codemetasoft && slidev"
   },
   "devDependencies": {
-    "@slidev/cli": "^52.9.1",
+    "@slidev/cli": "^52.11.3",
     "@slidev/theme-seriph": "^0.25.0",
     "playwright-chromium": "latest"
   },
